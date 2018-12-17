@@ -1,0 +1,80 @@
+<div class="container">
+  <div class="row">
+    <div class="col-md-6">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Sign Up</div>
+        <div class="panel-body">
+
+          <div class="row">
+            <form class="col-md-10 col-md-offset-1">
+              <div class="form-group">
+                <label>Enter User Email Id</label>
+                <input type="email" class="form-control" #email="ngModel" name="EmailId" id="EmailId" [(ngModel)]="userModel.EmailId"
+                  required minlength="10" maxlength="100" email>
+                <!-- {{name.valid}} -->
+                <label *ngIf='email.invalid && (email.dirty || email.touched)' class="text-danger">
+                  Enter Valid Email Id upto 100 Characters!
+                </label>
+              </div>
+              <div class="form-group">
+                <label>Enter User Name</label>
+                <input type="text" class="form-control" #name="ngModel" name="Name" 
+                id="Name" [(ngModel)]="userModel.UserName"
+                  required minlength="3" maxlength="10">
+                <!-- {{name.valid}} -->
+                <label *ngIf='name.invalid && (name.dirty || name.touched)' class="text-danger">
+                  Enter Valid User Name between 3 to 10 Characters!
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label>Enter User Password</label>
+                <input type="text" class="form-control" #password="ngModel" name="Password" id="Password" [(ngModel)]="userModel.Password"
+                  required minlength="5" maxlength="15">
+                <!-- {{name.valid}} -->
+                <label *ngIf='password.invalid && (password.dirty || password.touched)' class="text-danger">
+                  Enter User Password between 5 to 15 Characters!
+                </label>
+              </div>
+
+              <div class="form-group">
+                <label>Select Gender</label>
+                <br>
+                <input type="radio" #gender="ngModel" name="Gender" id="Gender" 
+                [(ngModel)]="userModel.Gender" value="Male" > Male
+                <input type="radio" #gender="ngModel" name="Gender" id="Gender" 
+                [(ngModel)]="userModel.Gender" value="Female" > Female
+              </div>
+
+              <div class="form-group">
+                <label>Country Name</label>
+                <!-- <input type="text" class="form-control" #password="ngModel" name="Password" id="Password" [(ngModel)]="userModel.Password" required minlength="5" maxlength="15"> -->
+                <select class="form-control" #countryname="ngModel" name="countryname" id="countryname" [(ngModel)]="userModel.CountryName">
+                  <option *ngFor='let c of countryList' value="{{c.name}}">{{c.name}} | {{c.region}}</option>
+                </select>
+                <!-- {{name.valid}} -->
+                <!-- <label *ngIf='countryname.invalid && (countryname.dirty || countryname.touched)' class="text-danger">
+                        Select Country Name
+                      </label> -->
+              </div>
+              
+              <div class="form-group">
+                <button class="btn btn-primary" (click)="SignUp()">Sign Up</button>
+              </div>
+            </form>
+          </div>
+        </div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+    <div class="col-md-2"></div>
+    <div class="col-md-4">
+      <div class="panel panel-primary">
+        <div class="panel-heading">Sign In</div>
+        <div class="panel-body"><img src="https://placehold.it/150x80?text=IMAGE" class="img-responsive" style="width:100%"
+            alt="Image"></div>
+        <div class="panel-footer">Buy 50 mobiles and get a gift card</div>
+      </div>
+    </div>
+  </div>
+</div><br>
